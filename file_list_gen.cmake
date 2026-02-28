@@ -1,5 +1,6 @@
 list(
   APPEND
   LV_EDITOR_PROJECT_SOURCES
-  ${CMAKE_CURRENT_LIST_DIR}/project_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/project.c)
+  ${CMAKE_CURRENT_LIST_DIR}/panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/panel.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/main_gen.c)
