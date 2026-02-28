@@ -1,0 +1,21 @@
+# ESPHome build cache
+.esphome/
+*.bin
+*.elf
+*.map
+
+# Secrets — 絕對不要上傳
+secrets.yaml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VSCode
+.vscode/
+
+# Claude
+.claude/

@@ -1,0 +1,236 @@
+<!--
+	main.xml — 主畫面
+	800 × 480  /  Waveshare ESP32-S3-Touch-LCD-7
+
+	修改方式：用 LVGL Editor 打開 project.xml，
+	          此檔案會自動出現在 Screens 面板裡。
+-->
+<screen>
+
+	<!-- ── 全畫面背景容器 ────────────────────────────────── -->
+	<view
+		style="style_screen"
+		width="800"
+		height="480"
+		flex_flow="column"
+		style_pad_all="0"
+	>
+
+		<!-- ── 頂部狀態欄 ───────────────────────────────── -->
+		<row
+			width="100%"
+			height="50"
+			style_bg_color="#col_card"
+			style_bg_opa="255"
+			style_border_width="0"
+			style_pad_left="#unit_md"
+			style_pad_right="#unit_md"
+			style_flex_cross_place="center"
+		>
+			<label
+				text="Smart Home Panel"
+				style="style_text_main"
+				style_text_font="#font_bold_28"
+				flex_grow="1"
+			/>
+			<label
+				id="lbl_wifi"
+				text="WiFi: ---"
+				style="style_text_sub"
+				style_text_font="#font_light_16"
+			/>
+		</row>
+
+		<!-- ── 感測器列 ──────────────────────────────────── -->
+		<row
+			width="100%"
+			height="80"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_pad_all="#unit_md"
+			style_flex_main_place="space_evenly"
+			style_flex_cross_place="center"
+		>
+			<!-- 溫度 -->
+			<view
+				width="160"
+				height="60"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<label
+					id="lbl_temp"
+					text="--.-°C"
+					style="style_text_main"
+					style_text_font="#font_bold_28"
+				/>
+				<label
+					text="室內溫度"
+					style="style_text_muted"
+					style_text_font="#font_light_16"
+				/>
+			</view>
+
+			<!-- 濕度 -->
+			<view
+				width="160"
+				height="60"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<label
+					id="lbl_humidity"
+					text="--%"
+					style="style_text_main"
+					style_text_font="#font_bold_28"
+				/>
+				<label
+					text="室內濕度"
+					style="style_text_muted"
+					style_text_font="#font_light_16"
+				/>
+			</view>
+
+			<!-- 功率 -->
+			<view
+				width="160"
+				height="60"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<label
+					id="lbl_power"
+					text="--W"
+					style="style_text_main"
+					style_text_font="#font_bold_28"
+				/>
+				<label
+					text="總功率"
+					style="style_text_muted"
+					style_text_font="#font_light_16"
+				/>
+			</view>
+		</row>
+
+		<!-- ── 燈光控制區 ────────────────────────────────── -->
+		<row
+			flex_grow="1"
+			width="100%"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_pad_all="#unit_md"
+			style_flex_main_place="space_evenly"
+			style_flex_cross_place="center"
+		>
+
+			<!-- 客廳燈 -->
+			<view
+				width="200"
+				height="160"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+				style_gap_row="#unit_sm"
+			>
+				<button
+					id="btn_light_living"
+					label="客廳燈"
+					width="160"
+					height="50"
+					style="style_btn_off"
+					style_text_color="#col_text"
+					style_text_font="#font_regular_20"
+				>
+					<!-- ESPHome export 後在 ui.c callback 加：btn_light_living_pressed = true; -->
+					<bind_style subject="light_living" name="style_btn_off" ref_value="0" />
+					<bind_style subject="light_living" name="style_btn_on"  ref_value="1" />
+				</button>
+				<label
+					id="lbl_living_state"
+					text="OFF"
+					style="style_text_sub"
+					style_text_font="#font_light_16"
+				>
+					<bind_text subject="light_living" true_value="ON" false_value="OFF" />
+				</label>
+			</view>
+
+			<!-- 玄關燈 -->
+			<view
+				width="200"
+				height="160"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+				style_gap_row="#unit_sm"
+			>
+				<button
+					id="btn_light_entry"
+					label="玄關燈"
+					width="160"
+					height="50"
+					style="style_btn_off"
+					style_text_color="#col_text"
+					style_text_font="#font_regular_20"
+				/>
+				<label
+					text="OFF"
+					style="style_text_sub"
+					style_text_font="#font_light_16"
+				/>
+			</view>
+
+			<!-- 廁所燈 -->
+			<view
+				width="200"
+				height="160"
+				style="style_card"
+				flex_flow="column"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+				style_gap_row="#unit_sm"
+			>
+				<button
+					id="btn_light_toilet"
+					label="廁所燈"
+					width="160"
+					height="50"
+					style="style_btn_off"
+					style_text_color="#col_text"
+					style_text_font="#font_regular_20"
+				/>
+				<label
+					text="OFF"
+					style="style_text_sub"
+					style_text_font="#font_light_16"
+				/>
+			</view>
+
+		</row>
+
+		<!-- ── 底部說明 ───────────────────────────────────── -->
+		<row
+			width="100%"
+			height="30"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_flex_main_place="center"
+		>
+			<label
+				text="LVGL Editor + ESPHome + ESP32-S3  |  800×480"
+				style="style_text_muted"
+				style_text_font="#font_light_16"
+			/>
+		</row>
+
+	</view>
+
+</screen>

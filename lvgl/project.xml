@@ -1,0 +1,7 @@
+<project name="panel">
+	<targets>
+		<target name="main_view">
+			<display width="800" height="480" />
+		</target>
+	</targets>
+</project>
