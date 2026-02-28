@@ -1,171 +1,177 @@
 <screen>
-	<view>
+	<view flex_flow="column" width="100%" height="480">
 		<style name="style_screen" />
 
-		<column width="100%" height="480">
+		<!-- 頂部狀態欄 -->
+		<lv_obj
+			flex_flow="row"
+			width="100%"
+			height="50"
+			style_bg_color="#col_card"
+			style_bg_opa="100%"
+			style_border_width="0"
+			style_pad_left="#unit_md"
+			style_pad_right="#unit_md"
+			style_flex_cross_place="center"
+		>
+			<lv_label text="Smart Home Panel" style_text_color="#col_text" flex_grow="1" />
+			<lv_label id="lbl_wifi" text="WiFi: ---" style_text_color="#col_subtext" />
+		</lv_obj>
 
-			<!-- 頂部狀態欄 -->
-			<row
-				width="100%"
-				height="50"
+		<!-- 感測器列 -->
+		<lv_obj
+			flex_flow="row"
+			width="100%"
+			height="90"
+			style_bg_opa="0%"
+			style_border_width="0"
+			style_pad_all="#unit_md"
+			style_flex_main_place="space_evenly"
+			style_flex_cross_place="center"
+		>
+			<!-- 溫度卡片 -->
+			<lv_obj
+				flex_flow="column"
+				width="180"
+				height="70"
 				style_bg_color="#col_card"
 				style_bg_opa="100%"
-				style_border_width="0"
-				style_pad_left="#unit_md"
-				style_pad_right="#unit_md"
-				style_flex_cross_place="center"
-			>
-				<lv_label text="Smart Home Panel" style_text_color="#col_text" flex_grow="1" />
-				<lv_label id="lbl_wifi" text="WiFi: ---" style_text_color="#col_subtext" />
-			</row>
-
-			<!-- 感測器列 -->
-			<row
-				width="100%"
-				height="90"
-				style_bg_opa="0%"
-				style_border_width="0"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
 				style_pad_all="#unit_md"
-				style_flex_main_place="space_evenly"
-				style_flex_cross_place="center"
-			>
-				<!-- 溫度卡片 -->
-				<column
-					width="180"
-					height="70"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_label id="lbl_temp" text="--.-°C" style_text_color="#col_text" />
-					<lv_label text="室內溫度" style_text_color="#col_muted" />
-				</column>
-
-				<!-- 濕度卡片 -->
-				<column
-					width="180"
-					height="70"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_label id="lbl_humidity" text="--%"  style_text_color="#col_text" />
-					<lv_label text="室內濕度" style_text_color="#col_muted" />
-				</column>
-
-				<!-- 功率卡片 -->
-				<column
-					width="180"
-					height="70"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_label id="lbl_power" text="--W" style_text_color="#col_text" />
-					<lv_label text="總功率" style_text_color="#col_muted" />
-				</column>
-			</row>
-
-			<!-- 燈光控制區 -->
-			<row
-				flex_grow="1"
-				width="100%"
-				style_bg_opa="0%"
-				style_border_width="0"
-				style_pad_all="#unit_md"
-				style_flex_main_place="space_evenly"
-				style_flex_cross_place="center"
-			>
-				<!-- 客廳燈 -->
-				<column
-					width="210"
-					height="160"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_pad_row="#unit_sm"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_button id="btn_light_living" width="170" height="55">
-						<subject_increment_event trigger="clicked" subject="light_living" step="1" min_value="0" max_value="1" rollover="true" />
-						<lv_label text="客廳燈" style_text_color="#col_text" align="center" />
-					</lv_button>
-					<lv_label id="lbl_living_state" text="OFF" style_text_color="#col_subtext" />
-				</column>
-
-				<!-- 玄關燈 -->
-				<column
-					width="210"
-					height="160"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_pad_row="#unit_sm"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_button id="btn_light_entry" width="170" height="55">
-						<subject_increment_event trigger="clicked" subject="light_entry" step="1" min_value="0" max_value="1" rollover="true" />
-						<lv_label text="玄關燈" style_text_color="#col_text" align="center" />
-					</lv_button>
-					<lv_label id="lbl_entry_state" text="OFF" style_text_color="#col_subtext" />
-				</column>
-
-				<!-- 廁所燈 -->
-				<column
-					width="210"
-					height="160"
-					style_bg_color="#col_card"
-					style_bg_opa="100%"
-					style_border_color="#col_divider"
-					style_border_width="1"
-					style_radius="#radius_card"
-					style_pad_all="#unit_md"
-					style_pad_row="#unit_sm"
-					style_flex_main_place="center"
-					style_flex_cross_place="center"
-				>
-					<lv_button id="btn_light_toilet" width="170" height="55">
-						<subject_increment_event trigger="clicked" subject="light_toilet" step="1" min_value="0" max_value="1" rollover="true" />
-						<lv_label text="廁所燈" style_text_color="#col_text" align="center" />
-					</lv_button>
-					<lv_label id="lbl_toilet_state" text="OFF" style_text_color="#col_subtext" />
-				</column>
-			</row>
-
-			<!-- 底部說明 -->
-			<row
-				width="100%"
-				height="30"
-				style_bg_opa="0%"
-				style_border_width="0"
 				style_flex_main_place="center"
+				style_flex_cross_place="center"
 			>
-				<lv_label text="LVGL Editor + ESPHome + ESP32-S3  |  800x480" style_text_color="#col_muted" />
-			</row>
+				<lv_label id="lbl_temp" text="--.-°C" style_text_color="#col_text" />
+				<lv_label text="室內溫度" style_text_color="#col_muted" />
+			</lv_obj>
 
-		</column>
+			<!-- 濕度卡片 -->
+			<lv_obj
+				flex_flow="column"
+				width="180"
+				height="70"
+				style_bg_color="#col_card"
+				style_bg_opa="100%"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
+				style_pad_all="#unit_md"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<lv_label id="lbl_humidity" text="--%"  style_text_color="#col_text" />
+				<lv_label text="室內濕度" style_text_color="#col_muted" />
+			</lv_obj>
+
+			<!-- 功率卡片 -->
+			<lv_obj
+				flex_flow="column"
+				width="180"
+				height="70"
+				style_bg_color="#col_card"
+				style_bg_opa="100%"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
+				style_pad_all="#unit_md"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<lv_label id="lbl_power" text="--W" style_text_color="#col_text" />
+				<lv_label text="總功率" style_text_color="#col_muted" />
+			</lv_obj>
+		</lv_obj>
+
+		<!-- 燈光控制區 -->
+		<lv_obj
+			flex_flow="row"
+			flex_grow="1"
+			width="100%"
+			style_bg_opa="0%"
+			style_border_width="0"
+			style_pad_all="#unit_md"
+			style_flex_main_place="space_evenly"
+			style_flex_cross_place="center"
+		>
+			<!-- 客廳燈 -->
+			<lv_obj
+				flex_flow="column"
+				width="210"
+				height="160"
+				style_bg_color="#col_card"
+				style_bg_opa="100%"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
+				style_pad_all="#unit_md"
+				style_pad_row="#unit_sm"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<lv_button id="btn_light_living" width="170" height="55">
+					<subject_increment_event trigger="clicked" subject="light_living" step="1" min_value="0" max_value="1" rollover="true" />
+					<lv_label text="客廳燈" style_text_color="#col_text" align="center" />
+				</lv_button>
+				<lv_label id="lbl_living_state" text="OFF" style_text_color="#col_subtext" />
+			</lv_obj>
+
+			<!-- 玄關燈 -->
+			<lv_obj
+				flex_flow="column"
+				width="210"
+				height="160"
+				style_bg_color="#col_card"
+				style_bg_opa="100%"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
+				style_pad_all="#unit_md"
+				style_pad_row="#unit_sm"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<lv_button id="btn_light_entry" width="170" height="55">
+					<subject_increment_event trigger="clicked" subject="light_entry" step="1" min_value="0" max_value="1" rollover="true" />
+					<lv_label text="玄關燈" style_text_color="#col_text" align="center" />
+				</lv_button>
+				<lv_label id="lbl_entry_state" text="OFF" style_text_color="#col_subtext" />
+			</lv_obj>
+
+			<!-- 廁所燈 -->
+			<lv_obj
+				flex_flow="column"
+				width="210"
+				height="160"
+				style_bg_color="#col_card"
+				style_bg_opa="100%"
+				style_border_color="#col_divider"
+				style_border_width="1"
+				style_radius="#radius_card"
+				style_pad_all="#unit_md"
+				style_pad_row="#unit_sm"
+				style_flex_main_place="center"
+				style_flex_cross_place="center"
+			>
+				<lv_button id="btn_light_toilet" width="170" height="55">
+					<subject_increment_event trigger="clicked" subject="light_toilet" step="1" min_value="0" max_value="1" rollover="true" />
+					<lv_label text="廁所燈" style_text_color="#col_text" align="center" />
+				</lv_button>
+				<lv_label id="lbl_toilet_state" text="OFF" style_text_color="#col_subtext" />
+			</lv_obj>
+		</lv_obj>
+
+		<!-- 底部說明 -->
+		<lv_obj
+			flex_flow="row"
+			width="100%"
+			height="30"
+			style_bg_opa="0%"
+			style_border_width="0"
+			style_flex_main_place="center"
+		>
+			<lv_label text="LVGL Editor + ESPHome + ESP32-S3  |  800x480" style_text_color="#col_muted" />
+		</lv_obj>
 	</view>
 </screen>
