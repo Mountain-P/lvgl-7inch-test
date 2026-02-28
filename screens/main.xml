@@ -111,7 +111,6 @@
 				style_flex_cross_place="center"
 			>
 				<lv_button width="170" height="55">
-					<subject_increment_event trigger="clicked" subject="light_living" step="1" min_value="0" max_value="1" rollover="true" />
 					<lv_label text="客廳燈" style_text_color="#col_text" align="center" />
 				</lv_button>
 				<lv_label text="OFF" style_text_color="#col_subtext" />
@@ -133,7 +132,6 @@
 				style_flex_cross_place="center"
 			>
 				<lv_button width="170" height="55">
-					<subject_increment_event trigger="clicked" subject="light_entry" step="1" min_value="0" max_value="1" rollover="true" />
 					<lv_label text="玄關燈" style_text_color="#col_text" align="center" />
 				</lv_button>
 				<lv_label text="OFF" style_text_color="#col_subtext" />
@@ -155,7 +153,6 @@
 				style_flex_cross_place="center"
 			>
 				<lv_button width="170" height="55">
-					<subject_increment_event trigger="clicked" subject="light_toilet" step="1" min_value="0" max_value="1" rollover="true" />
 					<lv_label text="廁所燈" style_text_color="#col_text" align="center" />
 				</lv_button>
 				<lv_label text="OFF" style_text_color="#col_subtext" />
