@@ -1,11 +1,12 @@
+# Secrets — 絕對不要上傳
+esphome/secrets.yaml
+secrets.yaml
+
 # ESPHome build cache
 .esphome/
 *.bin
 *.elf
 *.map
-
-# Secrets — 絕對不要上傳
-secrets.yaml
 
 # macOS
 .DS_Store
@@ -14,8 +15,9 @@ secrets.yaml
 Thumbs.db
 desktop.ini
 
-# VSCode
+# VSCode / Cursor
 .vscode/
+.cursor/
 
 # Claude
 .claude/

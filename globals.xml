@@ -1,0 +1,76 @@
+<globals>
+    <api>
+        <!-- Add <enumdefs> here -->
+    </api>
+
+    <consts>
+        <!-- 背景 -->
+        <color name="col_bg"        value="0x0A0E1A" />
+        <color name="col_card"      value="0x131A2E" />
+        <color name="col_divider"   value="0x1E293B" />
+        <!-- 文字 -->
+        <color name="col_text"      value="0xE0E7FF" />
+        <color name="col_subtext"   value="0x94A3B8" />
+        <color name="col_muted"     value="0x475569" />
+        <!-- 強調 -->
+        <color name="col_accent"    value="0x818CF8" />
+        <!-- 燈光按鈕 -->
+        <color name="col_light_on"  value="0xF59E0B" />
+        <color name="col_light_off" value="0x334155" />
+        <!-- 間距 -->
+        <int name="unit_sm"  value="8"  />
+        <int name="unit_md"  value="16" />
+        <int name="unit_lg"  value="24" />
+        <int name="unit_xl"  value="40" />
+        <!-- 圓角 -->
+        <int name="radius_card" value="16" />
+        <int name="radius_btn"  value="12" />
+    </consts>
+
+    <styles>
+        <style name="style_screen"
+            bg_color="#col_bg"
+            bg_opa="255"
+            border_width="0"
+        />
+        <style name="style_card"
+            bg_color="#col_card"
+            bg_opa="255"
+            border_color="#col_divider"
+            border_width="1"
+            radius="#radius_card"
+            pad_all="#unit_md"
+        />
+        <style name="style_btn_off"
+            bg_color="#col_light_off"
+            bg_opa="255"
+            radius="#radius_btn"
+            shadow_width="0"
+        />
+        <style name="style_btn_on"
+            bg_color="#col_light_on"
+            bg_opa="255"
+            radius="#radius_btn"
+            shadow_width="0"
+        />
+    </styles>
+
+    <subjects>
+        <!-- 燈光狀態 0=off 1=on -->
+        <int name="light_living"   value="0" min_value="0" max_value="1" help="客廳燈" />
+        <int name="light_entry"    value="0" min_value="0" max_value="1" help="玄關燈" />
+        <int name="light_toilet"   value="0" min_value="0" max_value="1" help="廁所燈" />
+        <!-- 感測器 -->
+        <int name="indoor_temp_x10"  value="0"  min_value="-200" max_value="600"   help="室內溫度 x10" />
+        <int name="indoor_humidity"  value="0"  min_value="0"    max_value="100"   help="室內濕度 %" />
+        <int name="total_power"      value="0"  min_value="0"    max_value="20000" help="總功率 W" />
+    </subjects>
+
+    <images>
+        <!-- Add <file> or <data> tags here -->
+    </images>
+
+    <fonts>
+        <!-- Add <bin>, <tiny_ttf>, <freetype> tags here -->
+    </fonts>
+</globals>

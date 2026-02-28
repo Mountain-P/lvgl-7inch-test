@@ -1,0 +1,150 @@
+<screen>
+    <!-- 主畫面 800×480 — Waveshare ESP32-S3-Touch-LCD-7 -->
+    <lv_obj style="style_screen" width="800" height="480"
+        flex_flow="column" pad_all="0">
+
+        <!-- ── 頂部狀態欄 ─────────────────────────────────── -->
+        <lv_obj width="100%" height="50"
+            bg_color="#col_card" bg_opa="255"
+            border_width="0" pad_hor="#unit_md"
+            flex_flow="row" flex_cross_place="center">
+
+            <lv_label text="Smart Home Panel"
+                text_color="#col_text"
+                flex_grow="1" />
+
+            <lv_label id="lbl_wifi"
+                text="WiFi: ---"
+                text_color="#col_subtext" />
+        </lv_obj>
+
+        <!-- ── 感測器列 ────────────────────────────────────── -->
+        <lv_obj width="100%" height="90"
+            bg_opa="0" border_width="0"
+            pad_all="#unit_md"
+            flex_flow="row"
+            flex_main_place="space_evenly"
+            flex_cross_place="center">
+
+            <!-- 溫度卡片 -->
+            <lv_obj style="style_card" width="180" height="70"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center">
+                <lv_label id="lbl_temp" text="--.-°C"
+                    text_color="#col_text" />
+                <lv_label text="室內溫度"
+                    text_color="#col_muted" />
+            </lv_obj>
+
+            <!-- 濕度卡片 -->
+            <lv_obj style="style_card" width="180" height="70"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center">
+                <lv_label id="lbl_humidity" text="--%"
+                    text_color="#col_text" />
+                <lv_label text="室內濕度"
+                    text_color="#col_muted" />
+            </lv_obj>
+
+            <!-- 功率卡片 -->
+            <lv_obj style="style_card" width="180" height="70"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center">
+                <lv_label id="lbl_power" text="--W"
+                    text_color="#col_text" />
+                <lv_label text="總功率"
+                    text_color="#col_muted" />
+            </lv_obj>
+
+        </lv_obj>
+
+        <!-- ── 燈光控制區 ──────────────────────────────────── -->
+        <lv_obj flex_grow="1" width="100%"
+            bg_opa="0" border_width="0"
+            pad_all="#unit_md"
+            flex_flow="row"
+            flex_main_place="space_evenly"
+            flex_cross_place="center">
+
+            <!-- 客廳燈 -->
+            <lv_obj style="style_card" width="210" height="160"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center"
+                pad_row="#unit_sm">
+                <lv_button id="btn_light_living"
+                    width="170" height="55"
+                    style="style_btn_off"
+                    text_color="#col_text">
+                    <bind_style subject="light_living"
+                        name="style_btn_off" ref_value="0" />
+                    <bind_style subject="light_living"
+                        name="style_btn_on"  ref_value="1" />
+                    <lv_label text="客廳燈" text_color="#col_text"
+                        align="center" />
+                </lv_button>
+                <lv_label id="lbl_living_state"
+                    text="OFF" text_color="#col_subtext">
+                    <bind_text subject="light_living"
+                        true_value="ON" false_value="OFF" />
+                </lv_label>
+            </lv_obj>
+
+            <!-- 玄關燈 -->
+            <lv_obj style="style_card" width="210" height="160"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center"
+                pad_row="#unit_sm">
+                <lv_button id="btn_light_entry"
+                    width="170" height="55"
+                    style="style_btn_off"
+                    text_color="#col_text">
+                    <bind_style subject="light_entry"
+                        name="style_btn_off" ref_value="0" />
+                    <bind_style subject="light_entry"
+                        name="style_btn_on"  ref_value="1" />
+                    <lv_label text="玄關燈" text_color="#col_text"
+                        align="center" />
+                </lv_button>
+                <lv_label id="lbl_entry_state"
+                    text="OFF" text_color="#col_subtext">
+                    <bind_text subject="light_entry"
+                        true_value="ON" false_value="OFF" />
+                </lv_label>
+            </lv_obj>
+
+            <!-- 廁所燈 -->
+            <lv_obj style="style_card" width="210" height="160"
+                flex_flow="column"
+                flex_main_place="center" flex_cross_place="center"
+                pad_row="#unit_sm">
+                <lv_button id="btn_light_toilet"
+                    width="170" height="55"
+                    style="style_btn_off"
+                    text_color="#col_text">
+                    <bind_style subject="light_toilet"
+                        name="style_btn_off" ref_value="0" />
+                    <bind_style subject="light_toilet"
+                        name="style_btn_on"  ref_value="1" />
+                    <lv_label text="廁所燈" text_color="#col_text"
+                        align="center" />
+                </lv_button>
+                <lv_label id="lbl_toilet_state"
+                    text="OFF" text_color="#col_subtext">
+                    <bind_text subject="light_toilet"
+                        true_value="ON" false_value="OFF" />
+                </lv_label>
+            </lv_obj>
+
+        </lv_obj>
+
+        <!-- ── 底部說明 ─────────────────────────────────────── -->
+        <lv_obj width="100%" height="30"
+            bg_opa="0" border_width="0"
+            flex_flow="row" flex_main_place="center">
+            <lv_label
+                text="LVGL Editor + ESPHome + ESP32-S3  |  800x480"
+                text_color="#col_muted" />
+        </lv_obj>
+
+    </lv_obj>
+</screen>
